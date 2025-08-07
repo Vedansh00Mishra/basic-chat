@@ -30,6 +30,8 @@ import { app } from "./firbase.js";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+//Logout Handler
+
 const logoutHandler = () => {
   signOut(auth);
 };
@@ -39,12 +41,14 @@ const loginHandler = () => {
   signInWithPopup(auth, provider);
 };
 
+//Main App
 function App() {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const divForScroll = useRef(null);
 
+  //Submit Handler
   const submitHandler = async (e) => {
     e.preventDefault();
     if (message.trim() === "") return;
